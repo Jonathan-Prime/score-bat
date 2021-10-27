@@ -1,7 +1,7 @@
 <template>
-    <div class="template">
+    <div class="home-component">
         <template v-if="lgs" >
-                <div class="card" v-for="leagues in lgs">
+                <div class="card" v-for="leagues in lgs" :key="leagues">
                     <img class="card-img-top" :src="leagues.thumbnail" alt="Card image cap" style="width: 100%;">
                     <div class="card-body">
                         <h5 class="card-title" v-text="leagues.title"></h5>
@@ -16,8 +16,8 @@
 <script>    
     import axios from 'axios';
 export default {
+    name: 'HomeComponent',
     mounted() {
-        let url;
         axios.get('https://www.scorebat.com/video-api/v1/')
             .then((rspt) => {
                 this.lgs = rspt.data;
@@ -34,29 +34,3 @@ export default {
     }, 
 }
 </script>
-
-<style>
-    .template {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: flex-end;
-        justify-content: space-around;
-        
-    }
-    .card {
-      width: 25rem;
-      margin: 12px 12px;
-    }
-    /*------------------------------------------------------------------
-[ Responsive ]*/
-
-
-
-@media (max-width: 992px) {
-  /* .template {
-    padding: 50px 24px 50px 24px;
-  } */
-}
-
-
-</style>

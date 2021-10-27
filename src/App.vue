@@ -1,19 +1,24 @@
 <template>
-  <section>
-    <router-view></router-view>
-  </section>
+  <div id="app">
+    <Navbar></Navbar>
+    <div class="center">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script>
-</script>
+  import HomeComponent from './components/home/Home.vue';
+  import Navbar from './components/navbar/Navbar.vue'
 
-<style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-  }
-  @media (max-width: 590px) {
-    .form-control {
-      width: 100px;
+  export default {
+    name: 'app',
+    components: {
+      HomeComponent,
+      Navbar,
     }
   }
+</script>
+<style>
+  @import './assets/css/styles.css';
 </style>

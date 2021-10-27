@@ -1,0 +1,19 @@
+.home-component {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: space-around;
+    
+}
+.card {
+    width: 25rem;
+    margin: 12px 12px;
+}
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+  }
+  @media (max-width: 590px) {
+    .form-control {
+      width: 100px;
+    }
+}

@@ -1,5 +1,5 @@
-import Score from './components/home/score.vue';
+import HomeComponent from './components/home/Home.vue';
 
 export const routes = [
-    { path: '/', component: Score},
+    { path: '/', component: HomeComponent},
 ];
