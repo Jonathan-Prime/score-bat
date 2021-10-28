@@ -9,6 +9,9 @@
     width: 25rem;
     margin: 12px 12px;
 }
+.select {
+  width: 100px;
+}
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
   }
