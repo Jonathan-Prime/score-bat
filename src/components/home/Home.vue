@@ -2,10 +2,20 @@
     <div>
         <select class="select">
                 <option value=""><input type="text"></option>
-                <option v-for="league in searchResult" :key="league">{{ league.competition.name }}</option>
+                <option v-for="league in searchResult" :key="league" >{{ league.competition.name }}</option>
         </select> 
-        <div class="home-component">
+        <div class="home-component" v-if="state == true">
             <div class="card" v-for="(leagues, index) in lgs.slice(0, 5)" :key="index">
+                <img class="card-img-top" :src="leagues.thumbnail" alt="Card image cap" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title" v-text="leagues.title"></h5>
+                    <p class="card-text" v-text="leagues.date"></p>
+                    <button type="button" class="btn btn-outline-primary" onclick="this.url">Live</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-component" v-if="state == false" >
+            <div class="card" v-for="(leagues, index) in change" :key="index">
                 <img class="card-img-top" :src="leagues.thumbnail" alt="Card image cap" style="width: 100%;">
                 <div class="card-body">
                     <h5 class="card-title" v-text="leagues.title"></h5>
@@ -36,19 +46,22 @@ export default {
     data() {
         return {
             lgs: [],
+            state: true,
         }
     },
    computed: {
         searchResult() {
         let lead = this.lgs;
-        
-        if (this.searchValue != '' && this.searchValue) {
-                lead = lead.filter((item) => {
-                    if (existing[item.competition.name]) return false;
-                    return existing[item.competition.name] = true;
-                })
-            }
+        lead = lead.filter((e) => (
+            e.competition.name
+        ));
             return lead
+        },
+        change() {
+            state = false;
+            let selectLeague = this.lgs;
+            const result = selectLeague.filter(res=>res.competition.name).map(ele=>ele);
+            return result;
         }
     }
 }
