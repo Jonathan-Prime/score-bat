@@ -12,11 +12,57 @@
 .select {
   width: 100px;
 }    
+
+/* Modal video */
+.modal-mask {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: table;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width:500px;
+  height: auto;
+  margin: 0 auto;
+  padding: 1.250rem 1.250rem 2rem;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.modal-button {
+  padding: 0.5rem 0.2rem;
+}
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
   }
-  @media (max-width: 590px) {
+@media (max-width: 590px) {
     .form-control {
       width: 100px;
     }
+    .modal-container{
+      width: auto;
+    }
+}
+@media (max-width: 300px) {
+  .modal-container{
+    width: auto;
+  }
 }
