@@ -3,8 +3,8 @@
       <div class="modal-wrapper">
           <div class="modal-container">
               <div class="modal-body">
-                  <div class="video">
-                      popup
+                  <div class="video" v-html="dataRandom[id].embed">
+            
                   </div>
               </div>
               <div class="modal-footer">
@@ -18,8 +18,20 @@
 </template>
 
 <script>
+import { EventBus } from '../../eventBus.js'
 export default {
-    name: 'detail'
+    name: 'detail',
+    props: ['dataRandom'],
+    data(){
+        return { 
+            id: '',
+        }
+    },
+    created(){
+        EventBus.$on("showVideo", (item) => {
+            this.id = item;
+        })
+    }
 }
 </script>
 

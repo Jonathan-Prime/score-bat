@@ -1,9 +1,14 @@
-.home-component {
+.component {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-end;
     justify-content: space-around;
     
+}
+.component-leagues {
+  width: 50%;
+  margin: 5%;
+  justify-content: center;
 }
 .card {
     width: 25rem;
